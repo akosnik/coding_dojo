@@ -1,0 +1,12 @@
+th, td  {
+    border-bottom: 1px solid black;
+    border-right: 1px solid black;
+}
+
+td:last-child, th:last-child {
+    border-right: 0;
+}
+
+.no_bottom td {
+    border-bottom: 0;
+}

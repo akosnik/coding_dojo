@@ -1,0 +1,42 @@
+.container{
+    width: 950px;
+    background-color: silver;
+    margin: 0px auto;
+    padding: 20px;
+}
+.top-nav {
+    height: 150px;
+    background-color: green;
+    margin-bottom: 20px;
+}
+.side-nav {
+    height: 300px;
+    width: 200px;
+    background-color: blue;
+    display: flex;
+}
+.main {
+    height: 400px;
+    width: 700px;
+    background-color: red;
+    padding: 20px
+}
+.sub-content {
+    height: 200px;
+    width: 210px;
+    background-color: yellow;
+    
+}
+#advertisement {
+    height: 120px;
+    width: 660px;
+    background-color: purple;
+    margin-top: 20px;
+}
+.row {
+    display: flex;
+    align-items: top;
+    gap: 15px;
+    
+    /* TODO - what should go here? */
+}

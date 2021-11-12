@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:Arial, Helvetica, sans-serif
+}
+
+.container {
+    background: honeydew;
+    width: 60vw;
+    width: 600px;
+    height: 350px;
+    margin: 10% auto;
+    border: solid 3px pink;
+    box-shadow: 5px 5px 3px gainsboro;
+    contain: content;
+}
+
+.header {
+    background-color: #0aa;
+    height: 30%;
+    position: relative;
+}
+
+.avatar {
+    height: 100px;
+    position: absolute;
+    top: 50px;
+    left: 30px;
+    border: solid 3px honeydew;
+    border-radius: 50%;
+}
+
+.content {
+    min-height: 200px;
+    padding: 5%;
+    background-color: honeydew;
+    display: flexbox;
+    flex-direction: column;
+    align-content: space-around;
+    padding-top: 50px;
+}
+
+.map_marker {
+    height: 1em;
+    position: absolute;
+    left: -1em;
+}
+.gear {
+    width: 1em;
+    top: 0;
+    position: absolute;
+    left: -1.2em;
+}
+
+.location, .edit_profile {
+    margin-left: 1.2em;
+    position: relative;
+}
+
+.location, .job_titles, .edit_profile {
+    margin-top: 10px; 
+}
+
+.job_titles, .location, .edit_profile {
+    font-size: 20px;
+}

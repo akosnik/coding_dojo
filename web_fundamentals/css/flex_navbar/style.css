@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&family=Work+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: white;
+    font-family: Roboto;
+    font-weight: 200;
+}
+
+.nav {
+    width: 100%;
+    background-color: #222;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.3em 2em;
+}
+
+.nav-links {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    color: #ccc;
+    font-size: 0.7em;
+}
+
+a {
+    color: #ccc;
+    text-decoration: none;
+}
+
+.nav-links :hover {
+    font-size: 1.1em;
+    color: white;
+}
+
+.btn {
+    background-color: #09a;
+    padding: 0.1em 0.3em;
+    border: solid 2px black;
+    box-shadow: 3px 3px 0 black;
+}

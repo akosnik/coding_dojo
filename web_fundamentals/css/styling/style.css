@@ -1,0 +1,36 @@
+* {
+    padding: 0.2em;
+}
+
+h1 {
+    background-color: black;
+    color: white;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+#cloud {
+    padding: 0;
+    color: aqua;
+}
+
+h2 {
+    background-color: blueviolet;
+    color: white;
+    text-align: center;
+    font-style: italic;
+}
+
+h3 {
+    background-color: cornflowerblue;
+    text-decoration: underline;
+    text-align: right;
+}
+
+h2, h3 {
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+}
+
+h1, h2, h3 {
+    padding: 5px 15px;
+}
