@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header class="nav">
+        <h1>Network</h1>
+    </header>
+    <h1>Your Feed</h1>
+    <div class="container flexed">
+        <div class="profile flexed col">
+            <img src="./user-circle.png" alt="user avatar image" width="80">
+            <a href="http://">Add an avatar</a>
+            <h2>James Doe</h2>
+        </div>
+        <div class="post_container flexed col">
+            <div class="post">
+                <header>
+                    <h2>Neil M</h2>
+                    <p id="counter1">0 like(s)</p>
+                    <div class="button_container">
+                        <input type="button" value="Like" onclick="liked(0)">
+                    </div>
+                </header>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+            </div>
+            <div class="post">
+                <header>
+                    <h2>Nichole K</h2>
+                    <p id="counter2">0 like(s)</p>
+                    <div class="button_container">
+                        <input type="button" value="Like" onclick="liked(1)">
+                    </div>
+                </header>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quisquam quasi voluptatibus voluptates
+                    dolores
+                    harum numquam architecto tempora culpa labore.</p>
+            </div>
+            <div class="post">
+                <header>
+                    <h2>Jim R</h2>
+                    <p id="counter3">0 like(s)</p>
+                    <div class="button_container">
+                        <input type="button" value="Like" onclick="liked(2)">
+                    </div>
+                </header>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem quisquam quasi voluptatibus voluptates
+                    dolores.</p>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src="script.js"></script>
+
+</html>
