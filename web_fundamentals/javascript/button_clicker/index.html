@@ -10,39 +10,48 @@
 </head>
 
 <body>
-    <header>
-        <h1>Dojonary</h1>
-        <input type="search" name="search_header" id="search_header">
-        <input type="button" value="login">
-    </header>
-    <div class="hero">
-        <div class="main_content col">
-            <div class="definition_card">
-                <div class="left_header col">
-                    <h1></h1>
-                    <h4></h4>
-                    <h4></h4>
-                    <input type="button" value="13 Likes">
+
+
+
+    <div class="container">
+        <header class="flexed">
+            <h1>Dojonary</h1>
+            <input type="search" name="search_header" id="search_header" placeholder="Search">
+            <input class="button" type="button" value="Login" onclick="loginEvent(this)">
+        </header>
+        <div class="hero flexed col">
+            <div class="definition bordered flexed">
+                <div class="definition_left">
+                    <h1>ninja</h1>
+                    <h4>noun</h4>
+                    <h5>Plural: <i>ninjas</i></h5>
+                    <input class="button" type="button" value="13 Likes" onClick="liked()">
                 </div>
-                <div class="definition"></div>
+                <p>
+                    A practitioner skilled in the <a href="">Japanese</a> art of <a href="">ninjitsu</a>
+                </p>
             </div>
-            <div class="definition_card">
-                <div class="left_header col">
-                    <h1></h1>
-                    <h4></h4>
-                    <h4></h4>
-                    <input type="button" value="13 Likes">
+            <div class="definition bordered flexed">
+                <div class="definition_left">
+                    <h1>ninja</h1>
+                    <h4>noun</h4>
+                    <h5>Plural: <i>ninjas</i></h5>
+                    <input class="button" type="button" value="27 Likes" onClick="liked()">
                 </div>
-                <div class="definition"></div>
+                <p>
+                    A practitioner skilled in the <a href="">Japanese</a> art of <a href="">ninjitsu</a>
+                </p>
             </div>
         </div>
-        <div class="features col">
-            <div id="add_definition_card">
-                <h2>Dojonary is defined by YOU</h2>
-                <input type="button" value="Add Definition">
+        <div class="features">
+            <div class="add_definition bordered">
+                <h2>Dojonary is defined by <strong>YOU</strong></h2>
+                <input class="button" type="button" value="Add Definition" onClick="removeButton(this)">
             </div>
         </div>
     </div>
+
+    <script src="button_clicker.js"></script>
 </body>
 
 </html>

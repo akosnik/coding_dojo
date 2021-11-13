@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Balsamiq+Sans&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Balsamiq sans;
+    font-weight: 400;
+}
+
+
+
+/* UTILITY CLASS START */
+.container {
+    width: 80vw;
+    margin: 100px 10% 0 10%;
+    gap: 5%;
+    display: flex;
+	justify-content: space-around;
+    align-items: flex-start;
+}
+
+.flexed {
+    display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+
+.col {
+    flex-direction: column;
+}
+
+.button {
+    border: solid 2px black;
+    box-shadow: 3px 3px 0 black;
+    padding: 0.3em 1em;
+    font-weight: 700;
+}
+
+.bordered {
+    border: solid 3px black;
+}
+
+/* UTILITY CLASS END */
+
+/* HEADER CLASS START */
+header {
+    position: fixed;
+    top: 0;
+    width: 80%;
+    padding: 0.5em 1em;
+    gap: 5em;
+    background: rgb(200,200,200,0.8);
+}
+/* 
+header h1 {
+    flex: 3;
+} */
+
+#search_header {
+    padding: 0.2rem 0.7rem;
+    width: 300px;
+    border: solid 2px black;
+}
+
+header .button {
+    
+    background-color: mediumpurple;
+    max-width: 80px;
+}
+/* HEADER CLASS END */
+
+/* HERO CLASS START */
+.hero {
+    flex: 5;
+    flex-direction: column;
+    gap: 2em;
+}
+
+.definition {
+    width: 100%;
+    padding: 1em;
+}
+
+.definition_left {
+    flex: 2;
+    text-align: center;
+}
+
+.definition_left input {
+    margin-top: 1.2rem;
+    background-color:goldenrod;
+}
+
+.definition p {
+    flex: 5;
+    padding: 2em;
+}
+
+/* HERO CLASS END */
+
+
+/* FEATURES CLASS START */
+.features {
+    flex: 3;
+}
+
+.add_definition {
+    padding: 1em;
+}
+
+.add_definition input {
+    margin-top: 1.2rem;
+    width: 100%;
+    padding: 0.3em;
+    font-size: 1rem;
+    background-color: cadetblue;
+}
+
+/* FEATURES CLASS END */

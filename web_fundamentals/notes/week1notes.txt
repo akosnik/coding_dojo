@@ -109,8 +109,9 @@ All values are truthy unless they are defined as falsy
 
 
 
-
-
+https://github.com/mazurasdf/MERN_September2021
+https://css-tricks.com/
+kevin powell
 
 
 
