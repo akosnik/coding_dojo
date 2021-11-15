@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <!-- navbar -->
+    <header class="main-header flexed">
+        <nav class="flexed">
+            <h1 id="logo">DojoWeather</h1>
+            <ul>
+                <li id="burbank"><input type="button" value="Burbank"></li>
+                <li id="chicago"><input type="button" value="Chicago"></li>
+                <li id="dallas"><input type="button" value="Dallas"></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- hero container -->
+    <div id="hero-container" class="">
+
+        <!-- hero header -->
+        <header id="hero-header" class="flexed">
+            <h2>San Jose</h2>
+            <div id="convert-container">
+                <label for="temperature-dropdown"></label>
+                <select name="units" id="units">
+                    <option value="celcius">&degC</option>
+                    <option value="fahrenheit">&degF</option>
+                </select>
+            </div>
+        </header>
+
+        <!-- hero body -->
+        <div id="hero" class="flexed bordered">
+
+            <!-- weather card -->
+            <div class="weather-card">
+                <h3>Today</h3>
+                <img src="" alt="">
+                <p></p>
+                <div class="temp-hilo flexed">
+                    <p class="hi">24&deg</p>
+                    <p class="low">18&deg</p>
+                </div>
+            </div>
+
+            <!-- weather card -->
+            <div class="weather-card">
+                <h3>Today</h3>
+                <img src="" alt="">
+                <p></p>
+                <div class="temp-hilo flexed">
+                    <p class="hi">24&deg</p>
+                    <p class="low">18&deg</p>
+                </div>
+            </div>
+
+            <!-- weather card -->
+            <div class="weather-card">
+                <h3>Today</h3>
+                <img src="" alt="">
+                <p></p>
+                <div class="flexed temp-hilo">
+                    <p class="hi">24&deg</p>
+                    <p class="low">18&deg</p>
+                </div>
+            </div>
+
+            <!-- weather card -->
+            <div class="weather-card">
+                <h3>Today</h3>
+                <img src="" alt="">
+                <p></p>
+                <div class="flexed temp-hilo ">
+                    <p class="hi">24&deg</p>
+                    <p class="low">18&deg</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- popup -->
+    <div class="flexed bordered" id="cookie-alert">
+        <img src="./assets/cookie.png" alt="">
+        <div>
+            <h3>Stop! Cookie time</h3>
+            We use cookies (sadly not the edible ones) to personalize content and ads, to provide social media features
+            and
+            to analyse our traffic. <a href="http://">Read more...</a>
+        </div>
+        <input type="button" value="I Accept" onclick="">
+    </div>
+
+
+</body>
+<script src="script.js"></script>
+
+</html>
