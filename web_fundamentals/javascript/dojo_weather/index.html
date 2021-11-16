@@ -10,14 +10,15 @@
 </head>
 
 <body>
+
     <!-- navbar -->
-    <header class="main-header flexed">
+    <header class="main-header">
         <nav class="flexed">
-            <h1 id="logo">DojoWeather</h1>
+            <div id="logo">DojoWeather</div>
             <ul>
-                <li id="burbank"><input type="button" value="Burbank"></li>
-                <li id="chicago"><input type="button" value="Chicago"></li>
-                <li id="dallas"><input type="button" value="Dallas"></li>
+                <li id="burbank"><input type="button" value="Burbank" onclick="cityAlert();"></li>
+                <li id="chicago"><input type="button" value="Chicago" onclick="cityAlert();"></li>
+                <li id="dallas"><input type="button" value="Dallas" onclick="cityAlert();"></li>
             </ul>
         </nav>
     </header>
@@ -29,44 +30,22 @@
         <header id="hero-header" class="flexed">
             <h2>San Jose</h2>
             <div id="convert-container">
-                <label for="temperature-dropdown"></label>
-                <select name="units" id="units">
-                    <option value="celcius">&degC</option>
-                    <option value="fahrenheit">&degF</option>
+                <label for="units">show temperature in </label>
+                <select name="units" id="units" onchange="convert()">
+                    <option value="c">&degC</option>
+                    <option value="f">&degF</option>
                 </select>
             </div>
         </header>
 
         <!-- hero body -->
-        <div id="hero" class="flexed bordered">
+        <div id="hero" class="flexed">
 
             <!-- weather card -->
-            <div class="weather-card">
+            <div class="flexed col weather-card" id="today">
                 <h3>Today</h3>
-                <img src="" alt="">
-                <p></p>
-                <div class="temp-hilo flexed">
-                    <p class="hi">24&deg</p>
-                    <p class="low">18&deg</p>
-                </div>
-            </div>
-
-            <!-- weather card -->
-            <div class="weather-card">
-                <h3>Today</h3>
-                <img src="" alt="">
-                <p></p>
-                <div class="temp-hilo flexed">
-                    <p class="hi">24&deg</p>
-                    <p class="low">18&deg</p>
-                </div>
-            </div>
-
-            <!-- weather card -->
-            <div class="weather-card">
-                <h3>Today</h3>
-                <img src="" alt="">
-                <p></p>
+                <img src="./assets/some_rain.png" alt="rainy image">
+                <p>some rain</p>
                 <div class="flexed temp-hilo">
                     <p class="hi">24&deg</p>
                     <p class="low">18&deg</p>
@@ -74,13 +53,35 @@
             </div>
 
             <!-- weather card -->
-            <div class="weather-card">
-                <h3>Today</h3>
-                <img src="" alt="">
-                <p></p>
+            <div class="flexed col weather-card" id="tomorrow">
+                <h3>Tomorrow</h3>
+                <img src="./assets/some_sun.png" alt="sunny image">
+                <p>some sun</p>
+                <div class="flexed temp-hilo">
+                    <p class="hi">27&deg</p>
+                    <p class="low">19&deg</p>
+                </div>
+            </div>
+
+            <!-- weather card -->
+            <div class="flexed col weather-card" id="friday">
+                <h3>Friday</h3>
+                <img src="./assets/some_clouds.png" alt="cloudy image">
+                <p>some clouds</p>
+                <div class="flexed temp-hilo">
+                    <p class="hi">21&deg</p>
+                    <p class="low">16&deg</p>
+                </div>
+            </div>
+
+            <!-- weather card -->
+            <div class="flexed col weather-card" id="saturday">
+                <h3>Saturday</h3>
+                <img src="./assets/some_sun.png" alt="sunny image">
+                <p>some sun</p>
                 <div class="flexed temp-hilo ">
-                    <p class="hi">24&deg</p>
-                    <p class="low">18&deg</p>
+                    <p class="hi">26&deg</p>
+                    <p class="low">21&deg</p>
                 </div>
             </div>
         </div>
@@ -95,7 +96,7 @@
             and
             to analyse our traffic. <a href="http://">Read more...</a>
         </div>
-        <input type="button" value="I Accept" onclick="">
+        <input type="button" value="I Accept" onclick="removeCookie()">
     </div>
 
 

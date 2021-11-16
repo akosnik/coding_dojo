@@ -59,7 +59,7 @@ body {
 }
 
 .nav-links {
-    list-style-type: none;
+    list-style: none;
     display: none;
     align-items: center;
     gap: 3em;
@@ -143,7 +143,7 @@ body {
     height: 150%;
     position: absolute;
     left: 5%;
-    top: 25%;
+    bottom: -75%;
     border: solid 3px var(--content-background-color);
     border-radius: 50%;
 }
@@ -270,7 +270,7 @@ body {
     margin: .5em;
 }
 
-.view_more a{
+.view_more a {
     font-size: 1.5em;
 }
 
@@ -285,3 +285,5 @@ body {
         display: none;
     }
 }
+
+/* mad villainy */
