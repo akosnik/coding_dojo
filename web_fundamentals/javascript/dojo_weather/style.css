@@ -22,6 +22,10 @@
 .bordered {
     border: solid 2px black;
 }
+
+.container {
+    max-width: 1200px;
+}
 /*         UTILITY END         */
 
 /*         MAIN HEADER START         */
@@ -40,7 +44,6 @@
 
 .main-header nav {
     margin: 0 auto;
-    max-width: 800px;
     justify-content: space-between;
 }
 
@@ -63,7 +66,6 @@ li input {
 
 /*         HERO HEADER START         */
 #hero-container {
-    max-width: 800px;
     margin: 60px auto 0;
 }
 
@@ -83,11 +85,12 @@ li input {
     background-color: #eee;
     gap: 1em;
     padding: 1em;
+    
 }
 
 .weather-card img {
     border-radius: 50%;
-    max-width: 100%;
+    width: 100%;
 }
 
 .temp-hilo {
@@ -113,21 +116,14 @@ li input {
 
 /*         COOKIE ALERT START         */
 #cookie-alert {
-    font-family: Arial, Helvetica, sans-serif;
-    font-weight: 300;
     background-color: #eee;
     position: fixed;
     bottom: 1.5em;
     left: 0;
     right: 0;
     margin: 0 auto;
-    max-width: 800px;
-    min-height: 20px;
     padding: 1em;
-}
-
-#cookie-alert img {
-    margin-right: 1em;
+    gap: 1em;
 }
 
 #cookie-alert div {
@@ -145,3 +141,10 @@ li input {
 }
 
 /*         COOKIE ALERT END         */
+
+
+@media screen and (max-width: 900px) {
+    #hero {
+        flex-wrap: wrap;
+    }
+}
