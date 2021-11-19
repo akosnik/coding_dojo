@@ -10,7 +10,7 @@ var forecast = {
 }
 
 function convert() {
-    var days = Object.keys(forecast);           //MEMORIZE THIS
+    var days = Object.keys(forecast);           //MEMORIZE THIS days = ["today", "tomorrow", ]
     for (var i = 0; i < days.length; i++) {
         var hi = forecast[days[i]][0];          //UTILIZE NESTED INDECIES
         var low = forecast[days[i]][1];
