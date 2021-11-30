@@ -32,10 +32,16 @@ students = [
 
 def iterateDictionary(myList):
     for i in myList:
+        myStr = ''
         for key, val in i.items():
-            print(f"{key} - {val}")
+            myStr += (f"{key} - {val}")
+            if (key != list(i)[-1]):
+                myStr += (", ")
+        print(myStr)
 
-# iterateDictionary(students)
+
+iterateDictionary(students)
+
 
 # 3 ---------------------------------------------------------------
 
