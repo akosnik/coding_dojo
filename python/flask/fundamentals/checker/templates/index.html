@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <h1>Checkerboard</h1>
+    <!-- The if statement follows the pattern switching logic of a chessboard of any dimension -->
+    <!-- i//w offsets the colors on odd rows which is necessary for even widths -->
+    <!-- multiplying by (w+1)%2, removes that offset when the width is odd -->
+    <!-- the outside %2 alternates the colors every step of i -->
+
+    <div class="container" style="width: {{w*25}}px">
+        {% for i in range(w*h): %}
+        {% if (((w+1)%2)*i//w+i)%2 == 0:%}
+        <div style="background-color: {{color1}};"></div>
+        {% else: %}
+        <div style="background-color: {{color2}};"></div>
+        {% endif %}
+        {% endfor %}
+    </div>
+</body>
+
+</html>
