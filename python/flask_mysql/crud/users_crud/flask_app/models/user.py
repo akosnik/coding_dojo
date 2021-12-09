@@ -15,6 +15,9 @@ class User:
         # the right side is each column from the users table
         # this is how you turn your query result into python object
 
+        def __repr__(self):
+            return f"< first name: {self.first_name}, id:{self.id} > "
+
     @classmethod
     def get_all_users(cls):
         query = "SELECT * FROM users;"
@@ -31,6 +34,16 @@ class User:
         return users_list
 
     @classmethod
+    def get_user(cls, data):
+        query = "SELECT * FROM users WHERE id = %(id)s"
+        results = connectToMySQL('users_schema').query_db(query, data)
+
+        users_list = []
+        for item in results:
+            users_list.append(cls(item))
+        return users_list
+
+    @classmethod
     def create_new_user(cls, data):
         # the data comes from the html form.
         # connectToMySQL will unpack the data
@@ -38,5 +51,18 @@ class User:
         query = "INSERT INTO users (first_name, last_name, email) VALUES (%(first_name)s, %(last_name)s, %(email)s);"
         result = connectToMySQL('users_schema').query_db(query, data)
         return result
+        # result is the primary key of the new user
 
     # Soon we will implement update and delete here
+    @classmethod
+    def delete_user(cls, data):
+        query = "DELETE FROM users WHERE id = %(id)s"
+        result = connectToMySQL('users_schema').query_db(query, data)
+        return result
+
+    @classmethod
+    def edit_user(cls, data):
+        query = "UPDATE users SET first_name = %(first_name)s, last_name = %(last_name)s, email = %(email)s WHERE id = %(id)s"
+        result = connectToMySQL('users_schema').query_db(query, data)
+        print("edit result", result)
+        return result

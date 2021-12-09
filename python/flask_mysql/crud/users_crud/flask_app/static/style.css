@@ -6,9 +6,9 @@
 
 .container {
     margin: 0 auto;
-    max-width: 500px;
+    max-width: 650px;
 }
 
 h1 {
-    color: blue;
+    color: rgb(96, 83, 214);
 }
