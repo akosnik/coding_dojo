@@ -86,17 +86,17 @@ class User:
         return is_valid
 
     @classmethod
-    def is_valid_email(cls, email):
+    def is_valid_email(cls, email, login=False):
         is_valid = True
 
         if not EMAIL_REGEX.match(email):
-            print("6")
-            flash("Invalid email address.", "email")
+            if not login:
+                flash("Invalid email address.", "email")
             is_valid = False
         return is_valid
 
     @classmethod
-    def is_not_existing_email(cls, email):
+    def is_not_existing_email(cls, email, login=False):
         is_valid = True
         data = {
             'email': email
@@ -104,37 +104,45 @@ class User:
         query = "SELECT email FROM users WHERE email = %(email)s"
         results = connectToMySQL('login_schema').query_db(query, data)
         if len(results) > 0:
-            flash("Email already exists.", "email")
+            if not login:
+                flash("Email already exists.", "email")
             is_valid = False
         return is_valid
 
     @classmethod
-    def is_valid_password(cls, password):
+    def is_valid_password(cls, password, login=False):
         is_valid = True
 
         if len(password) < 8 or len(password) > 32:
-            flash("Password must be between 8 and 32 characters.", "password")
+            if not login:
+                flash("Password must be between 8 and 32 characters.", "password")
             is_valid = False
 
         if re.search("[a-z]", password) == None:
-            flash("Password must contain at least one lowercase letter.", "password")
+            if not login:
+                flash("Password must contain at least one lowercase letter.", "password")
             is_valid = False
 
         if re.search("[A-Z]", password) == None:
-            flash("Password must contain at least one uppercase letter.", "password")
+            if not login:
+                flash("Password must contain at least one uppercase letter.", "password")
             is_valid = False
 
         if re.search("[0-9]", password) == None:
-            flash("Password must contain at least one number.", "password")
+            if not login:
+                flash("Password must contain at least one number.", "password")
             is_valid = False
 
         if re.search("[!@#$%^&*()?._-]", password) == None:
-            flash(
-                "Password must contain at least one special character !@#$%^&*()?._-", "password")
+            if not login:
+                flash(
+                    "Password must contain at least one special character !@#$%^&*()?._-", "password")
             is_valid = False
 
         if PW_INVALIDS.match(password):
-            flash("Only alphanumeric or !@#$%^&*()?._- characters allowed.", "password")
+            if not login:
+                flash(
+                    "Only alphanumeric or !@#$%^&*()?._- characters allowed.", "password")
             is_valid = False
 
         return is_valid
@@ -163,10 +171,10 @@ class User:
 
     @classmethod
     def login(cls, data):
-        if not cls.is_valid_email(data['email']):
+        if not cls.is_valid_email(data['email'], login=True):
             flash("Invalid Email/Password", "login")
             return False
-        if not cls.is_valid_password(data['password']):
+        if not cls.is_valid_password(data['password'], login=True):
             flash("Invalid Email/Password", "login")
             return False
         user = cls.get_user_by_email(data)

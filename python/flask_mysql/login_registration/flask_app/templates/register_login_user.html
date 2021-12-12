@@ -122,7 +122,7 @@
                     <label for="">Password:</label>
                     <input name="password" type="password" class="form-control">
 
-                    {% with messages = get_flashed_messages(category_filter="LOGIN") %}
+                    {% with messages = get_flashed_messages(category_filter="login") %}
                     <!-- LOGIN VALIDATION -->
                     {% if messages %}
                     <div class="form-group alert alert-warning" role="alert">

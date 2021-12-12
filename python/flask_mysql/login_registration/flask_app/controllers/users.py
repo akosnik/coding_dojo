@@ -24,7 +24,7 @@ def home():
 def input_user():
     if session['user_id'] == False:
         return render_template('register_login_user.html')
-    redirect(f'/users/show/{session["user_id"]}')
+    return redirect(f'/users/show/{session["user_id"]}')
 
 
 @app.post('/users/create')
@@ -50,7 +50,9 @@ def login():
         'email': request.form['email'],
         'password': request.form['password']
     }
-    session['user_id'] = User.login(data).id
+    valid_login = User.login(data)
+    if valid_login:
+        session['user_id'] = valid_login.id
     return redirect('/users/login')
 
 
@@ -68,9 +70,9 @@ def logout():
 
 
 @app.route('/users/show/<num>')
-def show_user():
+def show_user(num):
     data = {
-        'id': session['user_id']
+        'id': num
     }
     user = User.get_user_by_id(data)
     return render_template('show_user.html', user=user)
@@ -107,3 +109,18 @@ def show_user():
 #     }
 #     User.edit_user(data)
 #     return redirect(f'/users/show/{num}')
+
+
+# - RESTful routing
+#     - CREATE
+#         - `/table_name/new` - GET display form
+#         - `/table_name/create` - POST function
+#     - READ MANY
+#         - `/table_name` - GET
+#     - READ ONE
+#         - `/table_name/id` - GET display single rows data
+#     - UPDATE
+#         - `/table_name/id/edit` - GET display the form
+#         - `/table_name/id/update` - POST function
+#     - DELETE
+#         - `/table_name/id/delete` - GET delete the row and redirect
