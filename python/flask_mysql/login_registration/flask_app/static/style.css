@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.container {
+    max-width: 800px;
+}
+
+form {
+    background-color: rgb(49, 49, 49);
+    color: white;
+    padding: 1.5rem;
+}
+
+h1 {
+    padding: 1.5rem;
+}
+
+
+form label {
+    font-weight: 500;
+}
+
+#register {
+    max-width: 300px;
+}
+
+#login {
+    max-width: 300px;
+}
