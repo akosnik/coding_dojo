@@ -29,6 +29,7 @@ def input_user():
 
 @app.post('/users/create')
 def create_user():
+
     if not User.is_valid_new_user(request.form):
         return redirect(f'/users/login')
 
