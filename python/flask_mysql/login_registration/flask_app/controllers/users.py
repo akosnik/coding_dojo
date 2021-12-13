@@ -33,7 +33,6 @@ def create_user():
     if not User.is_valid_new_user(request.form):
         return redirect(f'/users/login')
 
-    # Does this go in model or controller?
     pw_hash = bcrypt.generate_password_hash(request.form['password'])
     data = {
         'first_name': request.form['first_name'],

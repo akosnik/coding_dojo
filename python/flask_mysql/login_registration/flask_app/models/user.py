@@ -75,13 +75,24 @@ class User:
     #     return result
 
     @classmethod
-    def is_valid_name(cls, name):
+    def is_valid_first_name(cls, name):
         is_valid = True
         if len(name) < 2:
             flash("Names must be at least 2 characters.", "first_name")
             is_valid = False
         if len(name) > 45:
             flash("Names must be maximum 45 characters.", "first_name")
+            is_valid = False
+        return is_valid
+
+    @classmethod
+    def is_valid_last_name(cls, name):
+        is_valid = True
+        if len(name) < 2:
+            flash("Names must be at least 2 characters.", "last_name")
+            is_valid = False
+        if len(name) > 45:
+            flash("Names must be maximum 45 characters.", "last_name")
             is_valid = False
         return is_valid
 
@@ -149,24 +160,28 @@ class User:
 
     @classmethod
     def is_matching_password(cls, confirm, password):
-        is_valid = True
         if password != confirm:
             flash("Passwords do not match.", "confirm")
-            is_valid = False
-        return is_valid
+            return False
+        return True
 
     @classmethod
     def is_valid_new_user(cls, user):
         is_valid = True
-        if not(
-            cls.is_valid_name(user['first_name'])
-            and cls.is_valid_name(user['last_name'])
-            and cls.is_valid_email(user['email'])
-            and cls.is_not_existing_email(user['email'])
-            and cls.is_valid_password(user['password'])
-            and cls.is_matching_password(user['confirm_password'], user['password'])
-        ):
+
+        if not cls.is_valid_first_name(user['first_name']):
             is_valid = False
+        if not cls.is_valid_last_name(user['last_name']):
+            is_valid = False
+        if not cls.is_valid_email(user['email']):
+            is_valid = False
+        if not cls.is_not_existing_email(user['email']):
+            is_valid = False
+        if not cls.is_valid_password(user['password']):
+            is_valid = False
+        if not cls.is_matching_password(user['confirm_password'], user['password']):
+            is_valid = False
+
         return is_valid
 
     @classmethod
