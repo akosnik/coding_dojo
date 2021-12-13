@@ -22,6 +22,10 @@ class User:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
+    # 'instance' method
+    def full_name(self):
+        return f'{self.first_name} {self.last_name}'
+
     @classmethod
     def insert_new_user(cls, data):
         query = "INSERT INTO users (first_name, last_name, email, password) VALUES (%(first_name)s, %(last_name)s, %(email)s, %(password)s);"
@@ -74,8 +78,8 @@ class User:
     #     result = connectToMySQL('login_schema').query_db(query, data)
     #     return result
 
-    @classmethod
-    def is_valid_first_name(cls, name):
+    @staticmethod
+    def is_valid_first_name(name):
         is_valid = True
         if len(name) < 2:
             flash("Names must be at least 2 characters.", "first_name")
@@ -85,8 +89,8 @@ class User:
             is_valid = False
         return is_valid
 
-    @classmethod
-    def is_valid_last_name(cls, name):
+    @staticmethod
+    def is_valid_last_name(name):
         is_valid = True
         if len(name) < 2:
             flash("Names must be at least 2 characters.", "last_name")
@@ -96,19 +100,16 @@ class User:
             is_valid = False
         return is_valid
 
-    @classmethod
-    def is_valid_email(cls, email, login=False):
-        is_valid = True
-
+    @staticmethod
+    def is_valid_email(email, login=False):
         if not EMAIL_REGEX.match(email):
             if not login:
                 flash("Invalid email address.", "email")
-            is_valid = False
-        return is_valid
+            return False
+        return True
 
-    @classmethod
-    def is_not_existing_email(cls, email, login=False):
-        is_valid = True
+    @staticmethod
+    def is_not_existing_email(email, login=False):
         data = {
             'email': email
         }
@@ -117,11 +118,11 @@ class User:
         if len(results) > 0:
             if not login:
                 flash("Email already exists.", "email")
-            is_valid = False
-        return is_valid
+            return False
+        return True
 
-    @classmethod
-    def is_valid_password(cls, password, login=False):
+    @staticmethod
+    def is_valid_password(password, login=False):
         is_valid = True
 
         if len(password) < 8 or len(password) > 32:
@@ -158,41 +159,41 @@ class User:
 
         return is_valid
 
-    @classmethod
-    def is_matching_password(cls, confirm, password):
+    @staticmethod
+    def is_matching_password(confirm, password):
         if password != confirm:
             flash("Passwords do not match.", "confirm")
             return False
         return True
 
-    @classmethod
-    def is_valid_new_user(cls, user):
+    @staticmethod
+    def is_valid_new_user(user):
         is_valid = True
 
-        if not cls.is_valid_first_name(user['first_name']):
+        if not User.is_valid_first_name(user['first_name']):
             is_valid = False
-        if not cls.is_valid_last_name(user['last_name']):
+        if not User.is_valid_last_name(user['last_name']):
             is_valid = False
-        if not cls.is_valid_email(user['email']):
+        if not User.is_valid_email(user['email']):
             is_valid = False
-        if not cls.is_not_existing_email(user['email']):
+        if not User.is_not_existing_email(user['email']):
             is_valid = False
-        if not cls.is_valid_password(user['password']):
+        if not User.is_valid_password(user['password']):
             is_valid = False
-        if not cls.is_matching_password(user['confirm_password'], user['password']):
+        if not User.is_matching_password(user['confirm_password'], user['password']):
             is_valid = False
 
         return is_valid
 
-    @classmethod
-    def login(cls, data):
-        if not cls.is_valid_email(data['email'], login=True):
+    @staticmethod
+    def login(data):
+        if not User.is_valid_email(data['email'], login=True):
             flash("Invalid Email/Password", "login")
             return False
-        if not cls.is_valid_password(data['password'], login=True):
+        if not User.is_valid_password(data['password'], login=True):
             flash("Invalid Email/Password", "login")
             return False
-        user = cls.get_user_by_email(data)
+        user = User.get_user_by_email(data)
         if user == None:
             flash("Invalid Email/Password", "login")
             return False

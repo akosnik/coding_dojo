@@ -6,12 +6,16 @@ from flask_bcrypt import Bcrypt  # password encryption: pipenv install flask-bcr
 bcrypt = Bcrypt(app)
 
 
+def is_logged_in():
+    if 'user_id' not in session or session['user_id'] == False:
+        session['user_id'] = False
+        return False
+    return True
+
+
 @app.route('/')
 def home():
-    if 'user_id' not in session:
-        session['user_id'] = False
-        return redirect('/users/login')
-    if session['user_id'] == False:
+    if not is_logged_in():
         return redirect('/users/login')
     data = {
         'id': session['user_id']
@@ -33,6 +37,9 @@ def create_user():
     if not User.is_valid_new_user(request.form):
         return redirect(f'/users/login')
 
+# data sanitation
+# protects against SQL injection
+# Is it always done in controller?
     pw_hash = bcrypt.generate_password_hash(request.form['password'])
     data = {
         'first_name': request.form['first_name'],
@@ -71,6 +78,8 @@ def logout():
 
 @app.route('/users/show/<num>')
 def show_user(num):
+    if not is_logged_in():
+        return redirect('/users/login')
     data = {
         'id': num
     }
@@ -122,5 +131,5 @@ def show_user(num):
 #     - UPDATE
 #         - `/table_name/id/edit` - GET display the form
 #         - `/table_name/id/update` - POST function
-#     - DELETE
-#         - `/table_name/id/delete` - GET delete the row and redirect
+#     - DESTROY
+#         - `/table_name/id/destroy` - GET delete the row and redirect
